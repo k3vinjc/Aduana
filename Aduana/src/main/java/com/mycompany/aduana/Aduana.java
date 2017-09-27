@@ -15,12 +15,11 @@ import javax.jws.WebParam;
  */
 @WebService(serviceName = "Aduana")
 public class Aduana {
-
     /**
-     * This is a sample web service operation
+     * Web service que retorna el costo total que se debe pagar por un vehiculo que ingresara en aduana
      */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    @WebMethod(operationName = "calcular_Costo_Aduana")
+    public String calcular_Costo_Aduana(@WebParam(name = "marca") String marca, @WebParam(name = "linea") String linea, @WebParam(name = "modelo") int modelo) {
+        return "Hello " + marca + " ; "+linea+" ; "+modelo+" !";
     }
 }
