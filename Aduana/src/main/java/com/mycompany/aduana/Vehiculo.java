@@ -14,6 +14,8 @@ public class Vehiculo {
     private String Marca;
     private String Linea;
     private int Modelo;
+    private double Costo;
+    MySqlHanddler MSH;
     /**
      * Constructor de la clase
      */
@@ -21,6 +23,7 @@ public class Vehiculo {
         this.Marca=Marca;
         this.Linea=Linea;
         this.Modelo=Modelo;
+        MSH=new MySqlHanddler();
     }
     /**
      * Se ve si el vehiculo que quiere ingresar a Aduana existe en la base de datos de precio
@@ -32,9 +35,18 @@ public class Vehiculo {
     /**
      * Se calcula el costo de impuesto utilizando la formula: Precio(“Marca, Linea”)+(2000/(AñoActual-Modelo+1))+1000
      */
-    public double CalcularPrecio(){
-        double retorno=0.0;
-        
-        return retorno;
+    
+    public String getMarca(){
+        return this.Marca;
+    }
+    public String getLinea(){
+        return this.Linea;
+    }
+    public int Coneccion(){
+        return MSH.Conectar();
+    }
+    public double CalcularCosto(){
+        Costo= MSH.Costo(this);
+        return Costo;
     }
 }

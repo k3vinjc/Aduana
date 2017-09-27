@@ -21,6 +21,7 @@ public class Aduana {
     @WebMethod(operationName = "calcular_Costo_Aduana")
     public String calcular_Costo_Aduana(@WebParam(name = "marca") String marca, @WebParam(name = "linea") String linea, @WebParam(name = "modelo") int modelo) {
         Vehiculo vehiculo=new Vehiculo(marca, linea, modelo);
-        return "Hello " + marca + " ; "+linea+" ; "+modelo+" !";
+        vehiculo.Coneccion();
+        return vehiculo.CalcularCosto()+"";
     }
 }
