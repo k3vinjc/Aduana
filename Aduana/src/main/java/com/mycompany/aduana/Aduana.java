@@ -49,7 +49,6 @@ public class Aduana {
             ((ObjectNode) rootNode).put("descripción", "Los parametros son incorrectos");
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         }
-        
     }
     /**
      * Web service para agregar transferencia
