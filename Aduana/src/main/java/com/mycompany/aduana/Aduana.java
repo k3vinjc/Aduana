@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.text.DecimalFormat;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -24,6 +25,7 @@ public class Aduana {
      */
     @WebMethod(operationName = "calcular_Costo_Aduana")
     public String calcular_Costo_Aduana(@WebParam(name = "marca") String marca, @WebParam(name = "linea") String linea, @WebParam(name = "modelo") int modelo) throws JsonProcessingException {
+        DecimalFormat df = new DecimalFormat("#.00"); 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.createObjectNode();
         if(!marca.equals("") && !linea.equals("")){
@@ -39,7 +41,7 @@ public class Aduana {
                     ((ObjectNode) rootNode).put("descripción", "No se pudo conectar a la base de datos");
                 }else{
                     ((ObjectNode) rootNode).put("status", "1");
-                    ((ObjectNode) rootNode).put("costo_Aduana", Costo);
+                    ((ObjectNode) rootNode).put("costo_Aduana", df.format(Costo));
                     ((ObjectNode) rootNode).put("descripción", "Exitoso");
                 }
             }
