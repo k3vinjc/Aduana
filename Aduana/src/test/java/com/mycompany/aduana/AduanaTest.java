@@ -42,8 +42,8 @@ public class AduanaTest {
         Aduana instance = new Aduana();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.createObjectNode();
-        ((ObjectNode) rootNode).put("status", "0");
-        ((ObjectNode) rootNode).put("costo_Aduana", "1338.68");
+        ((ObjectNode) rootNode).put("status", 0);
+        ((ObjectNode) rootNode).put("costo_Aduana", 1338.68);
         ((ObjectNode) rootNode).put("descripción", "Exitoso");
         String expResult = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         String result = instance.calcular_Costo_Aduana(marca, linea, modelo);

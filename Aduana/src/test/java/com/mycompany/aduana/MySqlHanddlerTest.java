@@ -41,8 +41,6 @@ public class MySqlHanddlerTest {
         int expResult = 1;
         int result = instance.Conectar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("Error en el Test MySqlHanddler Conectar.");
     }
 
     /**
