@@ -44,9 +44,11 @@ public class AduanaTest {
         JsonNode rootNode = mapper.createObjectNode();
         ((ObjectNode) rootNode).put("status", 0);
         ((ObjectNode) rootNode).put("costo_Aduana", 1338.68);
-        ((ObjectNode) rootNode).put("descripción", "Exitoso");
+        ((ObjectNode) rootNode).put("descripcion", "Exitoso");
         String expResult = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         String result = instance.calcular_Costo_Aduana(marca, linea, modelo);
+        System.out.println(result);
+        System.out.println(expResult);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
