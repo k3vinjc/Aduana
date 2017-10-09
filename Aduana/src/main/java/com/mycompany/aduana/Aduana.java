@@ -33,22 +33,22 @@ public class Aduana {
             int coneccion=vehiculo.Coneccion();
             if(coneccion==0){
                 ((ObjectNode) rootNode).put("status", 1);
-                ((ObjectNode) rootNode).put("descripción", "No se pudo conectar a la base de datos");
+                ((ObjectNode) rootNode).put("descripcion", "No se pudo conectar a la base de datos");
             }else{
                 double Costo=vehiculo.CalcularCosto();
                 if(Costo==0.00){
                     ((ObjectNode) rootNode).put("status", 1);
-                    ((ObjectNode) rootNode).put("descripción", "No se pudo conectar a la base de datos");
+                    ((ObjectNode) rootNode).put("descripcion", "No se pudo conectar a la base de datos");
                 }else{
                     ((ObjectNode) rootNode).put("status", 0);
                     ((ObjectNode) rootNode).put("costo_Aduana", Double.parseDouble(df.format(Costo)));
-                    ((ObjectNode) rootNode).put("descripción", "Exitoso");
+                    ((ObjectNode) rootNode).put("descripcion", "Exitoso");
                 }
             }
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         }else{
             ((ObjectNode) rootNode).put("status", 1);
-            ((ObjectNode) rootNode).put("descripción", "Los parametros son incorrectos");
+            ((ObjectNode) rootNode).put("descripcion", "Los parametros son incorrectos");
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         }
     }
@@ -65,21 +65,21 @@ public class Aduana {
             int coneccion=transferencia.Coneccion();
             if(coneccion==0){
                 ((ObjectNode) rootNode).put("status", 1);
-                ((ObjectNode) rootNode).put("descripción", "No se pudo conectar a la base de datos");
+                ((ObjectNode) rootNode).put("descripcion", "No se pudo conectar a la base de datos");
             }else{
                 int Ingreso=transferencia.IngresarTransferencia();
                 if(Ingreso==0){
                     ((ObjectNode) rootNode).put("status", 1);
-                    ((ObjectNode) rootNode).put("descripción", "No se pudo conectar a la base de datos");
+                    ((ObjectNode) rootNode).put("descripcion", "No se pudo conectar a la base de datos");
                 }else{
                     ((ObjectNode) rootNode).put("status", 0);
-                    ((ObjectNode) rootNode).put("descripción", "Exitoso");
+                    ((ObjectNode) rootNode).put("descripcion", "Exitoso");
                 }
             }
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         }else{
             ((ObjectNode) rootNode).put("status", 1);
-            ((ObjectNode) rootNode).put("descripción", "Los parametros son incorrectos");
+            ((ObjectNode) rootNode).put("descripcion", "Los parametros son incorrectos");
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rootNode);
         }
     }
