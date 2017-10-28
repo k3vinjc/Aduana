@@ -23,6 +23,7 @@ public class Aduana {
     /**
      * Web service que retorna el costo total que se debe pagar por un vehiculo que ingresara en aduana
      */
+    //Calificacion Final
     @WebMethod(operationName = "calcular_Costo_Aduana")
     public String calcular_Costo_Aduana(@WebParam(name = "marca") String marca, @WebParam(name = "linea") String linea, @WebParam(name = "modelo") int modelo) throws JsonProcessingException {
         DecimalFormat df = new DecimalFormat("#.00"); 
